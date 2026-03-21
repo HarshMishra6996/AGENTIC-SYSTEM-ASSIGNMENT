@@ -1,23 +1,24 @@
+# Import required library
 import requests
 
-# API URL
+# API endpoint
 url = "https://api.github.com/search/repositories"
 
-# Parameters
+# Query parameters
 params = {
-    "q": "python",
-    "sort": "stars",
-    "order": "desc",
-    "per_page": 5
+    "q": "python",          # search keyword
+    "sort": "stars",        # sort by stars
+    "order": "desc",        # descending order
+    "per_page": 5           # limit to 5 results
 }
 
-# Send request
+# Send GET request
 response = requests.get(url, params=params)
 
 # Convert response to JSON
 data = response.json()
 
-# Print results
+# Print repository details
 print("Top 5 Python Repositories:\n")
 
 for repo in data["items"]:
